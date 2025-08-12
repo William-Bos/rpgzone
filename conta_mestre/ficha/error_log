@@ -1,0 +1,10 @@
+[11-Aug-2025 19:23:16 America/Fortaleza] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'personagem_id' in 'where clause' in /home3/will7361/rpgzone.com.br/conta_mestre/ficha/ficha_personagem.php:80
+Stack trace:
+#0 /home3/will7361/rpgzone.com.br/conta_mestre/ficha/ficha_personagem.php(80): mysqli->prepare('SELECT * FROM c...')
+#1 {main}
+  thrown in /home3/will7361/rpgzone.com.br/conta_mestre/ficha/ficha_personagem.php on line 80
+[12-Aug-2025 11:16:39 America/Fortaleza] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'personagem_id' in 'where clause' in /home3/will7361/rpgzone.com.br/conta_mestre/ficha/ficha_personagem.php:80
+Stack trace:
+#0 /home3/will7361/rpgzone.com.br/conta_mestre/ficha/ficha_personagem.php(80): mysqli->prepare('SELECT * FROM c...')
+#1 {main}
+  thrown in /home3/will7361/rpgzone.com.br/conta_mestre/ficha/ficha_personagem.php on line 80

@@ -1,0 +1,81 @@
+[11-Aug-2025 19:08:56 America/Fortaleza] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'personagem_id' in 'field list' in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php:178
+Stack trace:
+#0 /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php(178): mysqli->prepare('INSERT INTO car...')
+#1 {main}
+  thrown in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php on line 178
+[11-Aug-2025 19:10:07 America/Fortaleza] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'personagem_id' in 'field list' in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php:182
+Stack trace:
+#0 /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php(182): mysqli->prepare('INSERT INTO car...')
+#1 {main}
+  thrown in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php on line 182
+[12-Aug-2025 11:37:49 America/Fortaleza] PHP Warning:  Undefined variable $result_moedas in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php on line 30
+[12-Aug-2025 11:37:49 America/Fortaleza] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on null in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php:30
+Stack trace:
+#0 {main}
+  thrown in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php on line 30
+[12-Aug-2025 11:38:50 America/Fortaleza] PHP Warning:  Undefined variable $result_moedas in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php on line 30
+[12-Aug-2025 11:38:50 America/Fortaleza] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on null in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php:30
+Stack trace:
+#0 {main}
+  thrown in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php on line 30
+[12-Aug-2025 11:38:50 America/Fortaleza] PHP Warning:  Undefined variable $result_moedas in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php on line 30
+[12-Aug-2025 11:38:50 America/Fortaleza] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on null in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php:30
+Stack trace:
+#0 {main}
+  thrown in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php on line 30
+[12-Aug-2025 11:39:04 America/Fortaleza] PHP Warning:  Undefined variable $result_moedas in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php on line 30
+[12-Aug-2025 11:39:04 America/Fortaleza] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on null in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php:30
+Stack trace:
+#0 {main}
+  thrown in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php on line 30
+[12-Aug-2025 11:39:06 America/Fortaleza] PHP Warning:  Undefined variable $result_moedas in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php on line 30
+[12-Aug-2025 11:39:06 America/Fortaleza] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on null in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php:30
+Stack trace:
+#0 {main}
+  thrown in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php on line 30
+[12-Aug-2025 11:39:06 America/Fortaleza] PHP Warning:  Undefined variable $result_moedas in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php on line 30
+[12-Aug-2025 11:39:06 America/Fortaleza] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on null in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php:30
+Stack trace:
+#0 {main}
+  thrown in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php on line 30
+[12-Aug-2025 11:39:06 America/Fortaleza] PHP Warning:  Undefined variable $result_moedas in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php on line 30
+[12-Aug-2025 11:39:06 America/Fortaleza] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on null in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php:30
+Stack trace:
+#0 {main}
+  thrown in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php on line 30
+[12-Aug-2025 11:39:06 America/Fortaleza] PHP Warning:  Undefined variable $result_moedas in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php on line 30
+[12-Aug-2025 11:39:06 America/Fortaleza] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on null in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php:30
+Stack trace:
+#0 {main}
+  thrown in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php on line 30
+[12-Aug-2025 11:39:06 America/Fortaleza] PHP Warning:  Undefined variable $result_moedas in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php on line 30
+[12-Aug-2025 11:39:06 America/Fortaleza] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on null in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php:30
+Stack trace:
+#0 {main}
+  thrown in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php on line 30
+[12-Aug-2025 11:39:07 America/Fortaleza] PHP Warning:  Undefined variable $result_moedas in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php on line 30
+[12-Aug-2025 11:39:07 America/Fortaleza] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on null in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php:30
+Stack trace:
+#0 {main}
+  thrown in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php on line 30
+[12-Aug-2025 11:39:07 America/Fortaleza] PHP Warning:  Undefined variable $result_moedas in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php on line 30
+[12-Aug-2025 11:39:07 America/Fortaleza] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on null in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php:30
+Stack trace:
+#0 {main}
+  thrown in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php on line 30
+[12-Aug-2025 11:40:00 America/Fortaleza] PHP Warning:  Undefined variable $moedas in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php on line 294
+[12-Aug-2025 11:40:00 America/Fortaleza] PHP Warning:  foreach() argument must be of type array|object, null given in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php on line 294
+[12-Aug-2025 11:41:07 America/Fortaleza] PHP Warning:  Undefined variable $moedas in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php on line 294
+[12-Aug-2025 11:41:07 America/Fortaleza] PHP Warning:  foreach() argument must be of type array|object, null given in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php on line 294
+[12-Aug-2025 11:43:57 America/Fortaleza] PHP Warning:  Undefined array key "nome" in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php on line 296
+[12-Aug-2025 11:43:57 America/Fortaleza] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php on line 296
+[12-Aug-2025 11:48:15 America/Fortaleza] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'will7361_rpgzone.carteira_personagem' doesn't exist in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php:164
+Stack trace:
+#0 /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php(164): mysqli->prepare('INSERT INTO car...')
+#1 {main}
+  thrown in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php on line 164
+[12-Aug-2025 11:48:54 America/Fortaleza] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'moeda_id' in 'field list' in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php:164
+Stack trace:
+#0 /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php(164): mysqli->prepare('INSERT INTO car...')
+#1 {main}
+  thrown in /home3/will7361/rpgzone.com.br/conta_mestre/criar/criar_personagem/criar_personagem.php on line 164

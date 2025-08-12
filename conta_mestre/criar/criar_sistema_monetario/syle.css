@@ -1,0 +1,166 @@
+/* Importação das fontes */
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap');
+
+/* Estilo geral */
+body {
+  font-family: 'IM Fell English SC', serif;
+  background-color: #1f1f1f;
+  background-image: url('../../../fotos_site/fundoback.png');  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  color: #e8dbc3;
+}
+
+/* Cabeçalho */
+header {
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+header .titulo {
+  font-size: 2.5em;
+  color: #b99c1a;
+}
+
+header .links a {
+  color: #b99c1a;
+  text-decoration: none;
+  margin-left: 20px;
+  font-family: 'Merienda', cursive;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+header .links a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 5px #b99c1a;
+}
+
+/* Conteúdo principal */
+.conteudo {
+  padding: 40px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #b99c1a;
+  text-shadow: 1px 1px 3px #000;
+}
+
+h2 {
+  font-size: 2em;
+  margin: 30px 0 20px;
+  color: #ffffff;
+  text-shadow: 1px 1px 3px #000;
+}
+
+/* Formulários */
+form {
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 30px;
+    border-radius: 16px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
+    border: 2px solid #5a3d1e;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #e8dbc3;
+  font-family: 'Merienda', cursive;
+  text-align: left;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="file"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border-radius: 8px;
+  border: 1px solid #5a3d1e;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #f5f5f5;
+  box-sizing: border-box;
+  font-family: 'Merienda', cursive;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #ccc;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Botões */
+button {
+  margin-top: 20px;
+  background-color: #b99c1a;
+  color: #1f1f1f;
+  border: none;
+  padding: 12px 24px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-family: 'Merienda', cursive;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #d4b02d;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.7);
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f9f4e9;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #8b5a2b;
+  border-radius: 6px;
+  border: 3px solid #f9f4e9;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  header .links {
+    margin-top: 10px;
+  }
+
+  .conteudo {
+    padding: 20px;
+  }
+
+  form {
+    padding: 20px;
+  }
+}

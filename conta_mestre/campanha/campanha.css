@@ -1,0 +1,276 @@
+/* Importação de fontes medievais */
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap');
+
+/* Reset básico */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'IM Fell English SC', serif;
+    background-color: #1f1f1f;
+    background-image: url('../../fotos_site/fundoback.png');
+    background-repeat: repeat;
+    background-size: cover;
+    color: #e8dbc3;
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    background-color: rgba(0, 0, 0, 0.95);
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+}
+
+header .titulo {
+    font-size: 2.5em;
+    color: #bfa034;
+    text-shadow: 1px 1px 5px #000;
+}
+
+nav.links a {
+    color: #bfa034;
+    text-decoration: none;
+    margin-left: 25px;
+    font-family: 'Merienda', cursive;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav.links a:hover {
+    color: #fff;
+    text-shadow: 0 0 6px #bfa034;
+}
+
+/* Conteúdo principal */
+.conteudo {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px 60px;
+}
+
+/* Seção campanha info */
+.info-campanha {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.info-campanha img {
+    max-width: 320px;
+    width: 100%;
+    border-radius: 12px;
+    border: 3px solid #bfa034;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.7);
+    margin-bottom: 20px;
+}
+
+.info-campanha h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #bfa034;
+    text-shadow: 1px 1px 4px #000;
+}
+
+.info-campanha p {
+    font-size: 18px;
+    color: #d5c4a1;
+}
+
+/* Cards - itens e habilidades */
+.secao {
+    margin-bottom: 50px;
+}
+
+.secao h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px #000;
+    border-bottom: 2px solid #bfa034;
+    padding-bottom: 8px;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.card {
+    background-image: url('../../fotos_site/fundo-card.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 14px;
+    width: calc(33.333% - 20px);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.8);
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.9);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    border: 2px solid #5a3d1e;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    font-size: 22px;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px #000;
+}
+
+.card p {
+    font-family: 'Merienda', cursive;
+    font-size: 15px;
+    color: #e8dbc3;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Modal - fundo e centralização */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Modal - conteúdo */
+.modal-conteudo {
+    background-color: #1c1c1c;
+    border-radius: 12px;
+    padding: 30px 25px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.9);
+    border: 3px solid #bfa034;
+}
+
+/* Botão fechar */
+.fechar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #d5c4a1;
+    transition: color 0.3s ease;
+}
+
+.fechar:hover {
+    color: #bfa034;
+}
+
+/* Formulário dentro do modal */
+form label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #e8dbc3;
+}
+
+form input[type="text"],
+form input[type="number"],
+form input[type="file"],
+form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid #5a3d1e;
+    border-radius: 8px;
+    background-color: #2a2a2a;
+    color: #e8dbc3;
+    font-size: 15px;
+    font-family: inherit;
+}
+
+form textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
+form button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: #bfa034;
+    border: none;
+    color: #1c1c1c;
+    font-weight: 700;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #d9b949;
+}
+
+/* Link estilo botão */
+.link-like-button {
+    background: none;
+    border: none;
+    color: #bfa034;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 1em;
+    font-family: inherit;
+    padding: 0;
+}
+
+.link-like-button:hover {
+    color: #fff;
+    text-shadow: 0 0 6px #bfa034;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #2a2a2a;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #8b5a2b;
+    border-radius: 6px;
+    border: 3px solid #2a2a2a;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .card {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 600px) {
+    .card {
+        width: 100%;
+    }
+}

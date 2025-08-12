@@ -1,0 +1,135 @@
+/* Importação das fontes */
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap');
+
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo geral */
+body {
+    font-family: 'IM Fell English SC', serif;
+    background-color: #1f1f1f;
+  background-image: url('../../../fotos_site/fundoback.png');    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    min-height: 100vh;
+    color: #e8dbc3;
+}
+
+/* Cabeçalho */
+header {
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+header .titulo {
+    font-size: 2.5em;
+    color: #b99c1a;
+}
+
+header .links a {
+    color: #b99c1a;
+    text-decoration: none;
+    margin-left: 20px;
+    font-family: 'Merienda', cursive;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+header .links a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 5px #b99c1a;
+}
+
+/* Conteúdo */
+.conteudo {
+    padding: 40px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #b99c1a;
+    text-shadow: 1px 1px 3px #000;
+}
+
+form {
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 30px;
+    border-radius: 16px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
+    border: 2px solid #5a3d1e;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #e8dbc3;
+    text-shadow: 1px 1px 2px #000;
+    font-family: 'Merienda', cursive;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="file"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border-radius: 8px;
+    border: 2px solid #5a3d1e;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-family: 'Merienda', cursive;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+button {
+    margin-top: 20px;
+    background-color: #b99c1a;
+    color: #1f1f1f;
+    border: none;
+    padding: 12px 24px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-family: 'Merienda', cursive;
+    font-weight: bold;
+    font-size: 1em;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #d4b02a;
+    transform: scale(1.05);
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f9f4e9;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #8b5a2b;
+    border-radius: 6px;
+    border: 3px solid #f9f4e9;
+}

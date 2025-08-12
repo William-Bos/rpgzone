@@ -1,0 +1,40 @@
+[12-Aug-2025 11:04:40 America/Fortaleza] PHP Warning:  Undefined variable $stmt in /home3/will7361/rpgzone.com.br/conta_mestre/editar/editar_moeda.php on line 14
+[12-Aug-2025 11:04:40 America/Fortaleza] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home3/will7361/rpgzone.com.br/conta_mestre/editar/editar_moeda.php:14
+Stack trace:
+#0 {main}
+  thrown in /home3/will7361/rpgzone.com.br/conta_mestre/editar/editar_moeda.php on line 14
+[12-Aug-2025 11:07:40 America/Fortaleza] PHP Warning:  Undefined variable $stmt in /home3/will7361/rpgzone.com.br/conta_mestre/editar/editar_moeda.php on line 14
+[12-Aug-2025 11:07:40 America/Fortaleza] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home3/will7361/rpgzone.com.br/conta_mestre/editar/editar_moeda.php:14
+Stack trace:
+#0 {main}
+  thrown in /home3/will7361/rpgzone.com.br/conta_mestre/editar/editar_moeda.php on line 14
+[12-Aug-2025 11:07:44 America/Fortaleza] PHP Warning:  Undefined variable $stmt in /home3/will7361/rpgzone.com.br/conta_mestre/editar/editar_moeda.php on line 14
+[12-Aug-2025 11:07:44 America/Fortaleza] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on null in /home3/will7361/rpgzone.com.br/conta_mestre/editar/editar_moeda.php:14
+Stack trace:
+#0 {main}
+  thrown in /home3/will7361/rpgzone.com.br/conta_mestre/editar/editar_moeda.php on line 14
+[12-Aug-2025 11:09:39 America/Fortaleza] PHP Warning:  Undefined variable $conexao in /home3/will7361/rpgzone.com.br/conta_mestre/editar/editar_moeda.php on line 19
+[12-Aug-2025 11:09:39 America/Fortaleza] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home3/will7361/rpgzone.com.br/conta_mestre/editar/editar_moeda.php:19
+Stack trace:
+#0 {main}
+  thrown in /home3/will7361/rpgzone.com.br/conta_mestre/editar/editar_moeda.php on line 19
+[12-Aug-2025 11:09:43 America/Fortaleza] PHP Warning:  Undefined variable $conexao in /home3/will7361/rpgzone.com.br/conta_mestre/editar/editar_moeda.php on line 19
+[12-Aug-2025 11:09:43 America/Fortaleza] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home3/will7361/rpgzone.com.br/conta_mestre/editar/editar_moeda.php:19
+Stack trace:
+#0 {main}
+  thrown in /home3/will7361/rpgzone.com.br/conta_mestre/editar/editar_moeda.php on line 19
+[12-Aug-2025 11:10:07 America/Fortaleza] PHP Warning:  Undefined variable $conexao in /home3/will7361/rpgzone.com.br/conta_mestre/editar/editar_moeda.php on line 19
+[12-Aug-2025 11:10:07 America/Fortaleza] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home3/will7361/rpgzone.com.br/conta_mestre/editar/editar_moeda.php:19
+Stack trace:
+#0 {main}
+  thrown in /home3/will7361/rpgzone.com.br/conta_mestre/editar/editar_moeda.php on line 19
+[12-Aug-2025 11:11:43 America/Fortaleza] PHP Warning:  Undefined variable $conexao in /home3/will7361/rpgzone.com.br/conta_mestre/editar/editar_moeda.php on line 19
+[12-Aug-2025 11:11:43 America/Fortaleza] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home3/will7361/rpgzone.com.br/conta_mestre/editar/editar_moeda.php:19
+Stack trace:
+#0 {main}
+  thrown in /home3/will7361/rpgzone.com.br/conta_mestre/editar/editar_moeda.php on line 19
+[12-Aug-2025 11:13:03 America/Fortaleza] PHP Warning:  Undefined variable $conexao in /home3/will7361/rpgzone.com.br/conta_mestre/editar/editar_moeda.php on line 22
+[12-Aug-2025 11:13:03 America/Fortaleza] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home3/will7361/rpgzone.com.br/conta_mestre/editar/editar_moeda.php:22
+Stack trace:
+#0 {main}
+  thrown in /home3/will7361/rpgzone.com.br/conta_mestre/editar/editar_moeda.php on line 22

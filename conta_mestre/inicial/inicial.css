@@ -1,0 +1,134 @@
+/* Importação das fontes */
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap');
+
+/* Estilo geral */
+body {
+  font-family: 'IM Fell English SC', serif;
+  background-color: #1f1f1f;
+  background-image: url('../../fotos_site/fundoback.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  color: #e8dbc3;
+}
+
+/* Cabeçalho */
+header {
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+header .titulo {
+  font-size: 2.5em;
+  color: #b99c1a;
+
+}
+
+header .links a {
+  color: #b99c1a;
+
+  text-decoration: none;
+  margin-left: 20px;
+  font-family: 'Merienda', cursive;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+header .links a:hover {
+  color: #ffffff;
+   text-shadow: 0 0 5px #b99c1a;
+}
+
+/* Conteúdo principal */
+.conteudo {
+  padding: 40px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #b99c1a;
+  text-shadow: 1px 1px 3px #000;
+}
+
+h2 {
+  font-size: 2em;
+  margin: 30px 0 20px;
+  color: #ffffff;
+  text-shadow: 1px 1px 3px #000;
+}
+
+/* Cards de campanhas */
+.campanhas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.card {
+  background-image: url('../../fotos_site/fundo-card.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px;
+  width: 300px;
+  padding: 20px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.9);
+}
+
+.card a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card img {
+  width: 90%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid #5a3d1e;
+}
+
+.card h3 {
+  font-size: 1.6em;
+  margin: 10px 0;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px #000000;
+}
+
+.card p {
+  font-family: 'Merienda', cursive;
+  color: #ffffff;
+  font-size: 1em;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f9f4e9;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #8b5a2b;
+  border-radius: 6px;
+  border: 3px solid #f9f4e9;
+}
