@@ -18,7 +18,7 @@ if (!isset($_GET['id'])) {
     exit;
 }
 
-
+echo "a"
 
 
 
