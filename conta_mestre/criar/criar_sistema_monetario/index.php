@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 session_start();
 
 // Verifica se o usuário está logado
@@ -27,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     // Inserir no banco
-    $stmt = $conn->prepare("INSERT INTO carteira 
+    $stmt = $conn->prepare("INSERT INTO carteiras
         (id_campanha, nome_moeda, valor_base) 
         VALUES (?, ?, ?)");
 

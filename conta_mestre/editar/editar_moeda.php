@@ -19,7 +19,7 @@ $valor_base = floatval($_POST['valor_base']); // garantir que seja float
 // esse id deve ser enviado via POST, por exemplo $_POST['id_moeda']
 $id_carteira = intval($_POST['id_carteira']); 
 
-$sql = "UPDATE carteira SET nome_moeda = ?, valor_base = ? WHERE id = ?";
+$sql = "UPDATE carteiras SET nome_moeda = ?, valor_base = ? WHERE id = ?";
 $stmt = $conn->prepare($sql);
 
 if ($stmt === false) {

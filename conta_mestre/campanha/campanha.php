@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 session_start();
 
 if (!isset($_SESSION['usuario_id'])) {
@@ -49,7 +52,7 @@ $stmt_personagens->execute();
 $result_personagens = $stmt_personagens->get_result();
 
 
-$stmt_carteira = $conn->prepare("SELECT * FROM carteira WHERE id_campanha = ?");
+$stmt_carteira = $conn->prepare("SELECT * FROM carteiras WHERE id_campanha = ?");
 $stmt_carteira->bind_param("i", $id_campanha);
 $stmt_carteira->execute();
 $result_carteira = $stmt_carteira->get_result();

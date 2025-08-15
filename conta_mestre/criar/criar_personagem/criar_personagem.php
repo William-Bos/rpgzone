@@ -23,7 +23,7 @@ if (!isset($_GET['id'])) {
 $id_campanha = intval($_GET['id']);
 
 // Buscar moedas para o select da carteira
-$stmt_moedas = $conn->prepare("SELECT * FROM carteira WHERE id_campanha = ?");
+$stmt_moedas = $conn->prepare("SELECT * FROM carteiras WHERE id_campanha = ?");
 $stmt_moedas->bind_param("i", $id_campanha);
 $stmt_moedas->execute();
 $result_moedas = $stmt_moedas->get_result();
@@ -171,31 +171,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $moedas_ids = $_POST['moeda_id'];
             $quantidades = $_POST['quantidade'];
 
-            $stmt_nome_moeda = $conn->prepare("SELECT nome_moeda FROM carteira WHERE id = ?");
+            // Prepara o statement
             $stmt_moedas_insert = $conn->prepare("
-                INSERT INTO carteiras_personagem (personagem_id, nome_moeda, quantidade, carteira_id)
-                VALUES (?, ?, ?, ?)
-            ");
+        INSERT INTO carteiras_personagens (personagem_id, quantidade, id_carteira)
+        VALUES (?, ?, ?)
+    ");
 
-            foreach ($moedas_ids as $index => $carteira_id) {
-                $carteira_id = intval($carteira_id);
+            // Verifica se preparou corretamente
+            if (!$stmt_moedas_insert) {
+                die("Erro na preparação: " . $conn->error);
+            }
+
+            // Percorre as moedas recebidas
+            foreach ($moedas_ids as $index => $id_carteira) {
+                $id_carteira = intval($id_carteira);
                 $quantidade = floatval($quantidades[$index]);
 
-                if ($carteira_id > 0 && $quantidade > 0) {
-                    $stmt_nome_moeda->bind_param("i", $carteira_id);
-                    $stmt_nome_moeda->execute();
-                    $stmt_nome_moeda->bind_result($nome_moeda);
-                    $stmt_nome_moeda->fetch();
-                    $stmt_nome_moeda->free_result();
+                // Faz o bind dos parâmetros: personagem_id, quantidade, id_carteira
+                $stmt_moedas_insert->bind_param("idi", $personagem_id, $quantidade, $id_carteira);
 
-                    $stmt_moedas_insert->bind_param("isdi", $personagem_id, $nome_moeda, $quantidade, $carteira_id);
-                    $stmt_moedas_insert->execute();
+                // Executa o insert
+                if (!$stmt_moedas_insert->execute()) {
+                    echo "Erro ao inserir moeda: " . $stmt_moedas_insert->error;
                 }
             }
 
-            $stmt_nome_moeda->close();
             $stmt_moedas_insert->close();
         }
+
 
         echo "<script>
             alert('Personagem criado com sucesso!');
@@ -292,26 +295,26 @@ if (!isset($carteira) || !is_array($carteira)) {
 
             <!-- MOEDAS -->
             <div class="section moedas">
-    <label>Escolha as moedas e quantidades:</label>
-    <div id="carteira">
-        <div class="moeda">
-            <select name="moeda_id[]" required>
-                <option value="" disabled selected>Escolha a moeda</option>
-                <?php foreach ($carteira as $c): ?>
-                    <option value="<?= htmlspecialchars($c['id'], ENT_QUOTES, 'UTF-8') ?>">
-                        <?= htmlspecialchars($c['nome_moeda'], ENT_QUOTES, 'UTF-8') ?>
-                        (Vale <?= number_format((float)$c['valor_base'], 2, ',', '.') ?>)
-                    </option>
-                <?php endforeach; ?>
-            </select>
+                <label>Escolha as moedas e quantidades:</label>
+                <div id="carteira">
+                    <div class="moeda">
+                        <select name="moeda_id[]" required>
+                            <option value="" disabled selected>Escolha a moeda</option>
+                            <?php foreach ($carteira as $c): ?>
+                                <option value="<?= htmlspecialchars($c['id'], ENT_QUOTES, 'UTF-8') ?>">
+                                    <?= htmlspecialchars($c['nome_moeda'], ENT_QUOTES, 'UTF-8') ?>
+                                    (Vale <?= number_format((float)$c['valor_base'], 2, ',', '.') ?>)
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
 
-            <label>Quantidade:</label>
-            <input type="number" name="quantidade[]" min="0" step="0.01" value="0" required>
-        </div>
-    </div>
+                        <label>Quantidade:</label>
+                        <input type="number" name="quantidade[]" min="0" step="0.01" value="0" required>
+                    </div>
+                </div>
 
-    <button type="button" onclick="addMoeda()">Adicionar Moeda</button>
-</div>
+                <button type="button" onclick="addMoeda()">Adicionar Moeda</button>
+            </div>
 
 
             <!-- SUBMIT -->

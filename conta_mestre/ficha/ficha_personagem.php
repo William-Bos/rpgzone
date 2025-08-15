@@ -24,10 +24,10 @@ if (!isset($_GET['id'])) {
 
 // Buscar dados do personagem para preencher o formulário
 $personagem_id = intval($_GET['id']);
-$usuario_id = $_SESSION['usuario_id'];
+$id_usuario = $_SESSION['usuario_id'];
 
-$stmt = $conn->prepare("SELECT * FROM personagens WHERE id = ? AND usuario_id = ?");
-$stmt->bind_param("ii", $personagem_id, $usuario_id,);
+$stmt = $conn->prepare("SELECT * FROM personagens WHERE id = ? AND id_usuario = ?");
+$stmt->bind_param("ii", $personagem_id, $id_usuario);
 $stmt->execute();
 $result = $stmt->get_result();
 
@@ -82,15 +82,36 @@ while ($row = $result_pericias->fetch_assoc()) {
 $stmt_pericias->close();
 
 // Buscar carteira
-$stmt_carteira = $conn->prepare("SELECT * FROM carteira WHERE personagem_id = ?");
+$stmt_carteira = $conn->prepare("
+    SELECT cp.*, c.nome_moeda, c.valor_base, c.id_campanha
+    FROM carteiras_personagens AS cp
+    INNER JOIN carteiras AS c ON cp.id_carteira = c.id
+    WHERE cp.personagem_id = ?
+");
 $stmt_carteira->bind_param("i", $personagem_id);
 $stmt_carteira->execute();
 $result_carteira = $stmt_carteira->get_result();
+
 $carteira = [];
 while ($row = $result_carteira->fetch_assoc()) {
     $carteira[] = $row;
 }
+
 $stmt_carteira->close();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Processa o formulário de edição
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -276,7 +297,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
               </script>";
         exit;
-
     } else {
         echo "Erro ao atualizar personagem: " . $stmt_update->error;
     }
@@ -288,122 +308,157 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <title>Editar Personagem</title>
     <link rel="stylesheet" href="ficha_personagem.css">
 </head>
+
 <body>
 
-<div class="container">
-<a href="../campanha/campanha.php?id=<?php echo $id_campanha; ?>">Voltar para Campanha</a>
+    <div class="container">
+        <a href="../campanha/campanha.php?id=<?php echo $id_campanha; ?>">Voltar para Campanha</a>
 
-    <h1>Editar Personagem</h1>
-    <form action="" method="POST" enctype="multipart/form-data">
+        <h1>Editar Personagem</h1>
+        <form action="" method="POST" enctype="multipart/form-data">
 
-        <h2>Dados do Personagem</h2>
-        <input type="text" name="nome_personagem" placeholder="Nome" required value="<?= htmlspecialchars($personagem['nome']) ?>">
-        <input type="number" name="idade_personagem" placeholder="Idade" required value="<?= $personagem['idade'] ?>">
-        <input type="text" name="classe_personagem" placeholder="Classe" required value="<?= htmlspecialchars($personagem['classe']) ?>">
-        <input type="text" name="raca_personagem" placeholder="Raça" required value="<?= htmlspecialchars($personagem['raca']) ?>">
-        <input type="text" name="inspiracao_personagem" placeholder="Inspiração" value="<?= htmlspecialchars($personagem['inspiracao']) ?>">
-        <input type="number" name="ca_personagem" placeholder="Classe de Armadura" required value="<?= $personagem['ca'] ?>">
-        <input type="number" name="nivel_personagem" placeholder="Nível" required value="<?= $personagem['nivel'] ?>">
-        <input type="text" name="tier_aura_personagem" placeholder="Tier Aura" value="<?= htmlspecialchars($personagem['tier_aura']) ?>">
-        <input type="text" name="tier_magico_personagem" placeholder="Tier Mágico" value="<?= htmlspecialchars($personagem['tier_magico']) ?>">
-        <textarea name="historia_personagem" placeholder="História" rows="5"><?= htmlspecialchars($personagem['historia']) ?></textarea>
+            <h2>Dados do Personagem</h2>
+            <input type="text" name="nome_personagem" placeholder="Nome" required value="<?= htmlspecialchars($personagem['nome']) ?>">
+            <input type="number" name="idade_personagem" placeholder="Idade" required value="<?= $personagem['idade'] ?>">
+            <input type="text" name="classe_personagem" placeholder="Classe" required value="<?= htmlspecialchars($personagem['classe']) ?>">
+            <input type="text" name="raca_personagem" placeholder="Raça" required value="<?= htmlspecialchars($personagem['raca']) ?>">
+            <input type="text" name="inspiracao_personagem" placeholder="Inspiração" value="<?= htmlspecialchars($personagem['inspiracao']) ?>">
+            <input type="number" name="ca_personagem" placeholder="Classe de Armadura" required value="<?= $personagem['ca'] ?>">
+            <input type="number" name="nivel_personagem" placeholder="Nível" required value="<?= $personagem['nivel'] ?>">
+            <input type="text" name="tier_aura_personagem" placeholder="Tier Aura" value="<?= htmlspecialchars($personagem['tier_aura']) ?>">
+            <input type="text" name="tier_magico_personagem" placeholder="Tier Mágico" value="<?= htmlspecialchars($personagem['tier_magico']) ?>">
+            <textarea name="historia_personagem" placeholder="História" rows="5"><?= htmlspecialchars($personagem['historia']) ?></textarea>
 
-        <label>Foto do Personagem (JPG, PNG, GIF):</label>
-        <input type="file" name="foto" accept="image/*">
+            <label>Foto do Personagem (JPG, PNG, GIF):</label>
+            <input type="file" name="foto" accept="image/*">
 
-        <h2>Status</h2>
-        <input type="number" name="mana_atual" placeholder="Mana Atual" required value="<?= $status['mana_atual'] ?>">
-        <input type="number" name="mana_maxima" placeholder="Mana Máxima" required value="<?= $status['mana_maxima'] ?>">
-        <input type="number" name="vigor_atual" placeholder="Vigor Atual" required value="<?= $status['vigor_atual'] ?>">
-        <input type="number" name="vigor_maximo" placeholder="Vigor Máximo" required value="<?= $status['vigor_maximo'] ?>">
-        <input type="number" name="sanidade_atual" placeholder="Sanidade Atual" required value="<?= $status['sanidade_atual'] ?>">
-        <input type="number" name="sanidade_maxima" placeholder="Sanidade Máxima" required value="<?= $status['sanidade_maxima'] ?>">
-        <input type="number" name="hp_atual" placeholder="HP Atual" required value="<?= $status['hp_atual'] ?>">
-        <input type="number" name="hp_maximo" placeholder="HP Máximo" required value="<?= $status['hp_maximo'] ?>">
+            <h2>Status</h2>
+            <input type="number" name="mana_atual" placeholder="Mana Atual" required value="<?= $status['mana_atual'] ?>">
+            <input type="number" name="mana_maxima" placeholder="Mana Máxima" required value="<?= $status['mana_maxima'] ?>">
+            <input type="number" name="vigor_atual" placeholder="Vigor Atual" required value="<?= $status['vigor_atual'] ?>">
+            <input type="number" name="vigor_maximo" placeholder="Vigor Máximo" required value="<?= $status['vigor_maximo'] ?>">
+            <input type="number" name="sanidade_atual" placeholder="Sanidade Atual" required value="<?= $status['sanidade_atual'] ?>">
+            <input type="number" name="sanidade_maxima" placeholder="Sanidade Máxima" required value="<?= $status['sanidade_maxima'] ?>">
+            <input type="number" name="hp_atual" placeholder="HP Atual" required value="<?= $status['hp_atual'] ?>">
+            <input type="number" name="hp_maximo" placeholder="HP Máximo" required value="<?= $status['hp_maximo'] ?>">
 
-        <h2>Atributos</h2>
-        <div id="atributos-container">
-            <?php foreach ($atributos as $atributo): ?>
-                <div class="atributo-item">
-                    <input type="text" name="nome_atributo[]" placeholder="Nome" value="<?= htmlspecialchars($atributo['nome']) ?>" required>
-                    <input type="number" name="valor_atributo[]" placeholder="Valor" value="<?= $atributo['valor'] ?>" required>
-                    <input type="number" name="modificador_atributo[]" placeholder="Modificador" value="<?= $atributo['modificador'] ?>" required>
-                </div>
-            <?php endforeach; ?>
-        </div>
+            <h2>Atributos</h2>
+            <div id="atributos-container">
+                <?php foreach ($atributos as $atributo): ?>
+                    <div class="atributo-item">
+                        <input type="text" name="nome_atributo[]" placeholder="Nome" value="<?= htmlspecialchars($atributo['nome']) ?>" required>
+                        <input type="number" name="valor_atributo[]" placeholder="Valor" value="<?= $atributo['valor'] ?>" required>
+                        <input type="number" name="modificador_atributo[]" placeholder="Modificador" value="<?= $atributo['modificador'] ?>" required>
+                    </div>
+                <?php endforeach; ?>
+            </div>
 
-        <button type="button" onclick="adicionarAtributo()">Adicionar Atributo</button>
+            <button type="button" onclick="adicionarAtributo()">Adicionar Atributo</button>
 
-        <h2>Perícias</h2>
-        <div id="pericias-container">
-            <?php foreach ($pericias as $pericia): ?>
-                <div class="pericia-item">
-                    <input type="text" name="pericia_nome[]" placeholder="Nome" value="<?= htmlspecialchars($pericia['nome']) ?>" required>
-                    <input type="number" name="pericia_valor[]" placeholder="Valor" value="<?= $pericia['valor'] ?>" required>
-                </div>
-            <?php endforeach; ?>
-        </div>
+            <h2>Perícias</h2>
+            <div id="pericias-container">
+                <?php foreach ($pericias as $pericia): ?>
+                    <div class="pericia-item">
+                        <input type="text" name="pericia_nome[]" placeholder="Nome" value="<?= htmlspecialchars($pericia['nome']) ?>" required>
+                        <input type="number" name="pericia_valor[]" placeholder="Valor" value="<?= $pericia['valor'] ?>" required>
+                    </div>
+                <?php endforeach; ?>
+            </div>
 
-        <button type="button" onclick="adicionarPericia()">Adicionar Perícia</button>
+            <button type="button" onclick="adicionarPericia()">Adicionar Perícia</button>
 
-        <h2>Carteira</h2>
-        <div id="carteira-container">
-            <?php foreach ($carteira as $item): ?>
-                <div class="carteira-item">
-                    <input type="text" name="nome_moeda[]" placeholder="Nome da Moeda" value="<?= htmlspecialchars($item['nome_moeda']) ?>" required>
-                    <input type="number" name="valor_base[]" placeholder="Valor Base" value="<?= $item['valor_base'] ?>" required>
-                    <input type="number" name="quantidade[]" placeholder="Quantidade" value="<?= $item['quantidade'] ?>" required>
-                </div>
-            <?php endforeach; ?>
-        </div>
+            <h2>Carteira</h2>
+            <div id="carteira-container">
+                <?php foreach ($carteira as $item): ?>
+                    <div class="carteira-item">
+                        <input type="text" name="nome_moeda[]" placeholder="Nome da Moeda" value="<?= htmlspecialchars($item['nome_moeda']) ?>" required>
+                        <input type="number" name="valor_base[]" placeholder="Valor Base" value="<?= $item['valor_base'] ?>" required>
+                        <input type="number" name="quantidade[]" placeholder="Quantidade" value="<?= $item['quantidade'] ?>" required>
+                    </div>
+                <?php endforeach; ?>
+                <select name="moeda_id[]" required>
+                    <option value="" disabled selected>Escolha a moeda</option>
+                    <?php foreach ($carteira as $c): ?>
+                        <option value="<?= htmlspecialchars($c['id'], ENT_QUOTES, 'UTF-8') ?>">
+                            <?= htmlspecialchars($c['nome_moeda'], ENT_QUOTES, 'UTF-8') ?>
+                            (Vale <?= number_format((float)$c['valor_base'], 2, ',', '.') ?>)
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
 
-        <button type="button" onclick="adicionarMoeda()">Adicionar Moeda</button>
+            <button type="button" onclick="adicionarMoeda()">Adicionar Moeda</button>
 
-        <button type="submit">Salvar</button>
-    </form>
-</div>
+            <button type="submit">Salvar</button>
+        </form>
+    </div>
 
-<script>
-function adicionarAtributo() {
-    const container = document.getElementById('atributos-container');
-    const div = document.createElement('div');
-    div.classList.add('atributo-item');
-    div.innerHTML = `
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        function adicionarAtributo() {
+            const container = document.getElementById('atributos-container');
+            const div = document.createElement('div');
+            div.classList.add('atributo-item');
+            div.innerHTML = `
         <input type="text" name="nome_atributo[]" placeholder="Nome" required>
         <input type="number" name="valor_atributo[]" placeholder="Valor" required>
         <input type="number" name="modificador_atributo[]" placeholder="Modificador" required>
     `;
-    container.appendChild(div);
-}
+            container.appendChild(div);
+        }
 
-function adicionarPericia() {
-    const container = document.getElementById('pericias-container');
-    const div = document.createElement('div');
-    div.classList.add('pericia-item');
-    div.innerHTML = `
+        function adicionarPericia() {
+            const container = document.getElementById('pericias-container');
+            const div = document.createElement('div');
+            div.classList.add('pericia-item');
+            div.innerHTML = `
         <input type="text" name="pericia_nome[]" placeholder="Nome" required>
         <input type="number" name="pericia_valor[]" placeholder="Valor" required>
     `;
-    container.appendChild(div);
-}
+            container.appendChild(div);
+        }
 
-function adicionarMoeda() {
-    const container = document.getElementById('carteira-container');
-    const div = document.createElement('div');
-    div.classList.add('carteira-item');
-    div.innerHTML = `
-        <input type="text" name="nome_moeda[]" placeholder="Nome da Moeda" required>
-        <input type="number" name="valor_base[]" placeholder="Valor Base" required>
-        <input type="number" name="quantidade[]" placeholder="Quantidade" required>
-    `;
-    container.appendChild(div);
-}
-</script>
+        function addMoeda() {
+            const container = document.getElementById('carteira');
+
+            // Pega o primeiro grupo (.moeda) para clonar
+            const original = container.querySelector('.moeda');
+            if (!original) return;
+
+            // Clona o grupo
+            const novo = original.cloneNode(true);
+
+            // Reseta o select e input
+            const select = novo.querySelector('select');
+            select.value = '';
+
+            const inputQtd = novo.querySelector('input[type="number"]');
+            inputQtd.value = 0;
+
+            // Adiciona o clone ao container
+            container.appendChild(novo);
+        }
+    </script>
 
 </body>
+
 </html>
